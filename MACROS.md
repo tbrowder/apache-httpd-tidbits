@@ -2,7 +2,11 @@
 
 ## Include in an httpd conf file
 
-The example macro is named **VHOSTHTTPS** and has inputs of **${PROJECT}** and **${TLD}**:
+The example macro is named **VHOSTHTTPS** and has inputs of **${PROJECT}** and **${TLD}**.
+Following the macro's definition we use the macro three times to define three virtual hosts.
+As far as I know, we could define a practically unlimited number of virtual hosts.
+
+Currently I have 12 virtual hosts on line using this macro.
 
 
 ```
