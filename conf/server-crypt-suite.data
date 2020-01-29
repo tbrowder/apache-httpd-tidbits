@@ -1,0 +1,50 @@
+# for all hosts (i.e., server context)
+
+# for more security (as recommended by SSL Labs)
+# https://community.qualys.com/blogs/securitylabs/2013/08/05/configuring-apache-nginx-and-openssl-for-forward-secrecy
+
+SSLCompression Off
+# SSLFIPS Off # cannot appear in a virtual host section; it's now in main section near the top
+SSLHonorCipherOrder On
+SSLInsecureRenegotiation Off
+SSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
+SSLSessionTickets Off
+SSLVerifyClient None
+
+#=========================================
+# FALL BACK TO THIS IF TOO MANY COMPLAINTS
+#=========================================
+# from ssllabs-discuss@lists.sourceforge.net
+# Reindl Harald, 2015-05-03
+#  SSLCipherSuite "ECDHE-RSA-AES128-GCM-SHA256 \
+#                  ECDHE-RSA-AES256-GCM-SHA384 \
+#                  DHE-RSA-AES128-GCM-SHA256 \
+#                  DHE-RSA-AES256-GCM-SHA384 \
+#                  ECDHE-RSA-AES128-SHA256 \
+#                  ECDHE-RSA-AES256-SHA384 \
+#                  ECDHE-RSA-AES128-SHA \
+#                  ECDHE-RSA-AES256-SHA \
+#                  DHE-RSA-AES128-SHA256 \
+#                  DHE-RSA-AES256-SHA256 \
+#                  DHE-RSA-AES128-SHA \
+#                  DHE-RSA-AES256-SHA \
+#                  DHE-RSA-CAMELLIA128-SHA \
+#                  DHE-RSA-CAMELLIA256-SHA \
+#                  AES128-GCM-SHA256 \
+#                  AES256-GCM-SHA384 \
+#                  AES128-SHA \
+#                  AES256-SHA \
+#                  CAMELLIA128-SHA \
+#                  CAMELLIA256-SHA \
+#                  ECDHE-RSA-DES-CBC3-SHA \
+#                  DES-CBC3-SHA \
+#                  !LOW:!MEDIUM"
+
+#==============
+# BLEEDING EDGE
+# from ssllabs-discuss@lists.sourceforge.net
+# circa 2016-03-04
+SSLCipherSuite "ECDHE-RSA-AES128-GCM-SHA256 \
+                ECDHE-RSA-AES256-GCM-SHA384 \
+                ECDHE-RSA-AES128-SHA256 \
+                ECDHE-RSA-AES256-SHA384"
